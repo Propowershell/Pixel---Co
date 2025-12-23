@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | Pixel & Co</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+  
+/* HERO */
+.services-hero {
+  height: 30vh;
+  background:
+    linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+    url("https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+}
+
+.services-hero h1 {
+  color: white;
+  font-size: 64px;
+  font-weight: 400;
+}
+
+.hero-underline {
+  width: 60px;
+  height: 3px;
+  background-color: var(--cream);
+  margin-bottom: 20px;
+}
+
+/* SERVICES */
+.services-intro {
+  background: var(--cream);
+  padding: 80px 50px;
+  text-align: center;
+}
+
+.services-intro h2 {
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid rgba(0,0,0,.1);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  border-right: 1px solid rgba(0,0,0,.1);
+  padding: 40px 30px;
+  background: white;
+}
+
+.service-card:last-child {
+  border-right: none;
+}
+
+.service-card h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.service-card p {
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.8;
+}
+
+.outline-btn {
+  background: transparent;
+  border: 2px solid #333;
+  padding: 10px 25px;
+  margin-top: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+/* CLIENTS */
+.clients {
+  padding: 80px 50px;
+  text-align: center;
+  background: #f5f5f0;
+}
+
+.clients h2 {
+  font-size: 42px;
+  margin-bottom: 60px;
+}
+
+.client-logos {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.client-logos img {
+  height: 50px;
+  opacity: .6;
+  filter: grayscale(100%);
+}
+
+/* CTA SPLIT */
+.cta-split {
+  display: flex;
+  background: white;
+  min-height: 500px;
+}
+
+.cta-text {
+  flex: 1;
+  background: var(--cream);
+  padding: 80px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cta-text h3 {
+  font-size: 42px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.cta-text p {
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.cta-text .btn {
+  position: static;
+  transform: none;
+  align-self: flex-start;
+}
+
+.cta-image {
+  flex: 1;
+  position: relative;
+}
+
+.cta-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--dark);
+  color: white;
+  padding: 80px 50px;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-size: 42px;
+  margin-bottom: 25px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.final-cta p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+
+  .services-hero {
+    padding-left: 30px;
+  }
+
+  .services-hero h1 {
+    font-size: 52px;
+  }
+
+  .services-intro {
+    padding: 60px 30px;
+  }
+
+  .clients {
+    padding: 60px 30px;
+  }
+
+  .cta-text {
+    padding: 60px 30px;
+  }
+
+  .final-cta {
+    padding: 60px 30px;
+  }
+
+@media (max-width: 968px) {
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    border-right: none;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+  }
+
+  .service-card:last-child {
+    border-bottom: none;
+  }
+
+  .cta-split {
+    flex-direction: column;
+  }
+
+  .cta-image {
+    min-height: 400px;
+  }
+
+ 
+}
+
+@media (max-width: 768px) {
+  
+
+  .services-hero {
+    padding: 50px 20px;
+    height: 35vh;
+  }
+
+  .services-hero h1 {
+    font-size: 42px;
+  }
+
+  .services-intro {
+    padding: 50px 20px;
+  }
+
+  .services-intro h2 {
+    font-size: 36px;
+  }
+
+  .service-card {
+    padding: 30px 20px;
+  }
+
+  .clients {
+    padding: 50px 20px;
+  }
+
+  .clients h2 {
+    font-size: 36px;
+  }
+
+  .client-logos {
+    gap: 30px;
+  }
+
+  .client-logos img {
+    height: 40px;
+  }
+
+  .cta-text {
+    padding: 50px 20px;
+  }
+
+  .cta-text h3 {
+    font-size: 36px;
+  }
+
+  .cta-image {
+    min-height: 350px;
+  }
+
+  .final-cta {
+    padding: 50px 20px;
+  }
+
+  .final-cta h2 {
+    font-size: 36px;
+  }
+
+
+@media (max-width: 480px) {
+  
+  .services-hero {
+    padding: 40px 15px;
+    height: 30vh;
+  }
+
+  .services-hero h1 {
+    font-size: 32px;
+  }
+
+  .hero-underline {
+    width: 50px;
+    height: 2px;
+  }
+
+  .services-intro {
+    padding: 40px 15px;
+  }
+
+  .services-intro h2 {
+    font-size: 28px;
+  }
+
+  .service-card {
+    padding: 25px 15px;
+  }
+
+  .service-card h3 {
+    font-size: 22px;
+  }
+
+  .service-card p {
+    font-size: 15px;
+  }
+
+  .clients {
+    padding: 40px 15px;
+  }
+
+  .clients h2 {
+    font-size: 28px;
+  }
+
+  .client-logos {
+    gap: 20px;
+  }
+
+  .client-logos img {
+    height: 35px;
+  }
+
+  .cta-text {
+    padding: 40px 15px;
+  }
+
+  .cta-text h3 {
+    font-size: 28px;
+  }
+
+  .cta-text p {
+    font-size: 15px;
+  }
+
+
+  .cta-image {
+    min-height: 300px;
+  }
+
+  .final-cta {
+    padding: 40px 15px;
+  }
+
+  .final-cta h2 {
+    font-size: 28px;
+  }
+
+  .final-cta p {
+    font-size: 15px;
+  }
+
+  
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+  .services-hero h1 {
+    font-size: 28px;
+  }
+
+  .services-intro h2,
+  .clients h2,
+  .cta-text h3,
+  .final-cta h2 {
+    font-size: 24px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html">
+  <img src="images/Pixel-&-Co.png" alt="Pixel & Co Logo" class="logo">
+</a>
+  
+  <button class="btn">Get a Quote</button>
+
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul id="nav-list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="services-hero">
+  <div>
+    <div class="hero-underline"></div>
+    <h1>Services</h1>
+  </div>
+</header>
+
+<main>
+
+<!-- SERVICES GRID -->
+<section class="services-intro">
+  <h2>How can we help you?</h2>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Creative Design</h3>
+      <p>
+        Our skilled graphic and web designers craft distinctive logos
+        and websites tailored to reflect your brand's identity.
+      </p>
+      <button class="outline-btn">Get in Touch</button>
+    </div>
+
+    <div class="service-card">
+      <h3>Research & Development</h3>
+      <p>
+        We design user-friendly websites backed by industry research
+        to ensure your business gets the most out of its online presence.
+      </p>
+      <button class="outline-btn">Get in Touch</button>
+    </div>
+
+    <div class="service-card">
+      <h3>Branding & Marketing</h3>
+      <p>
+        Build your brand with purpose, reach your audience with clarity,
+        and drive results through strategic storytelling.
+      </p>
+      <button class="outline-btn">Get in Touch</button>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT LOGOS -->
+<section class="clients">
+  <h2>Clients We Worked With</h2>
+
+  <div class="client-logos">
+    <img src="images/client-logo-1.png" alt="Client">
+    <img src="images/client-logo-2.png" alt="Client">
+    <img src="images/client-logo-3.png" alt="Client">
+    <img src="images/client-logo-4.png" alt="Client">
+  </div>
+</section>
+
+<!-- CTA SPLIT -->
+<section class="cta-split">
+  <div class="cta-text">
+    <h3>Thinking of building something new?</h3>
+    <p>
+      We're here to turn your vision into reality—ready to create and grow
+      something powerful together.
+    </p>
+    <button class="btn">Schedule a Call</button>
+  </div>
+
+  <div class="cta-image">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200" alt="Team working">
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Let us together build a flourishing business</h2>
+  <p>
+    When connected with us, you aren't growing your business alone. We have your back and put in our best to contribute to the growth of your entire team and organization. So, if you are looking for the right agency that'll help you build a good online presence and bring in more conversions and revenue, we are right here!
+  </p>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="contact-info">
+      <p><strong>1234 N Spring St, Los Angeles, CA 90012</strong></p>
+      <p>mail@example.com</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    
+     <div class="social-links">
+   <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+   <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+   <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+   <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+ </div>
+ 
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright © 2025 Pixel & Co | Powered by Pixel & Co.</p>
+  </div>
+</footer>
+
+<script src="script.js">
+  
+</script>
+
+</body>
+</html>

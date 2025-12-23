@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Pixel & Co</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* HERO */
+        .contact-hero {
+            height: 40vh;
+            background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+                url("https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding-left: 50px;
+            color: white;
+        }
+
+        .contact-hero h1 {
+            font-size: 64px;
+            font-weight: 400;
+        }
+
+        .hero-underline {
+            width: 60px;
+            height: 3px;
+            background-color: var(--cream);
+            margin-bottom: 20px;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            background: var(--cream);
+            padding: 80px 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-info-wrapper h2 {
+            font-size: 42px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .contact-detail i {
+            font-size: 20px;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .contact-detail p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .follow-us {
+            margin-top: 50px;
+        }
+
+        .follow-us h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: #333;
+            font-size: 22px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #666;
+        }
+
+        /* CONTACT FORM */
+        .contact-form-wrapper {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-form-wrapper h3 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #999;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* MAP SECTION */
+        .map-section {
+            background: var(--cream-light);
+            padding: 0;
+            height: 400px;
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .contact-hero {
+                padding-left: 30px;
+            }
+
+            .contact-hero h1 {
+                font-size: 52px;
+            }
+
+            .contact-section {
+                padding: 60px 30px;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero {
+                padding: 50px 20px;
+                height: 35vh;
+            }
+
+            .contact-hero h1 {
+                font-size: 42px;
+            }
+
+            .contact-section {
+                padding: 50px 20px;
+            }
+
+            .contact-info-wrapper h2 {
+                font-size: 36px;
+            }
+
+            .contact-form-wrapper {
+                padding: 40px 25px;
+            }
+
+            .contact-form-wrapper h3 {
+                font-size: 28px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero {
+                padding: 40px 15px;
+                height: 30vh;
+            }
+
+            .contact-hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-underline {
+                width: 50px;
+                height: 2px;
+            }
+
+            .contact-section {
+                padding: 40px 15px;
+            }
+
+            .contact-info-wrapper h2 {
+                font-size: 28px;
+            }
+
+            .follow-us h3 {
+                font-size: 24px;
+            }
+
+            .contact-form-wrapper {
+                padding: 30px 20px;
+            }
+
+            .contact-form-wrapper h3 {
+                font-size: 24px;
+            }
+
+            .map-section {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .contact-hero h1 {
+                font-size: 28px;
+            }
+
+            .contact-info-wrapper h2,
+            .contact-form-wrapper h3 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="index.html">
+        <img src="images/Pixel-&-Co.png" alt="Pixel & Co Logo" class="logo">
+    </a>
+    
+    <button class="btn">Get a Quote</button>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <ul id="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<header class="contact-hero">
+    <div>
+        <div class="hero-underline"></div>
+        <h1>Contact</h1>
+    </div>
+</header>
+
+<main>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+    <div class="contact-info-wrapper">
+        <h2>We are here to help!</h2>
+        
+        <div class="contact-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <p><strong>1234 N Spring St, Los Angeles, CA 90012</strong></p>
+        </div>
+
+        <div class="contact-detail">
+            <i class="fas fa-phone"></i>
+            <p><strong>+1 234 567 890</strong></p>
+        </div>
+
+        <div class="contact-detail">
+            <i class="fas fa-envelope"></i>
+            <p><strong>mail@example.com</strong></p>
+        </div>
+
+        <div class="follow-us">
+            <h3>Follow us</h3>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-form-wrapper">
+        <h3>Send us a message</h3>
+        <form id="contact-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="text" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" placeholder="Subject" required>
+            </div>
+
+            <div class="form-group">
+                <textarea placeholder="Your Message" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<!-- MAP SECTION -->
+<section class="map-section">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.4171788195524!2d-118.24532492346947!3d34.05942127315457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c64f7c2a5a77%3A0x9b5c9e3c0e4e8e0e!2sLos%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="contact-info">
+            <p><strong>1234 N Spring St, Los Angeles, CA 90012</strong></p>
+            <p>mail@example.com</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Copyright © 2025 Pixel & Co | Powered by Pixel & Co.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+    // Form submission handler
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+    });
+</script>
+
+</body>
+</html>

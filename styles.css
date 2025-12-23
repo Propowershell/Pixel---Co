@@ -1,6 +1,9 @@
 :root {
-  --black: #000;
-  --white: #fff;
+    --black: #000;
+    --white: #fff;
+    --cream: #f4e8c1;
+    --cream-light: #f9f5eb;
+    --dark: #3d3d3d;
 }
 
 * {
@@ -10,60 +13,106 @@
 }
 
 body {
-    font-family: 'Montserrat', serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: #333;
 }
 
-.hamburger-icon {
-    display: none;
-}
-
-/* Navigation */
+/* NAV */
 nav {
-    background-color: transparent;
-    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
-    position: relative;
-    z-index: 10;
+    padding: 20px 50px;
+    background-color: #4a4a4a;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     gap: 30px;
-    transition: all 0.3s ease;
+    list-style: none;
 }
 
-nav ul li a {
+nav a {
     color: white;
     text-decoration: none;
     font-size: 14px;
-    transition: color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-nav ul li a:hover {
-    color: #f4e8c1;
+nav a.active {
+    color: var(--cream);
 }
 
 .logo {
     height: 40px;
-    color: lightgrey;
 }
 
+.hamburger {
+    display: none;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.hamburger span {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: white;
+    left: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0;
+}
+
+.hamburger span:nth-child(2) {
+    top: 9px;
+}
+
+.hamburger span:nth-child(3) {
+    bottom: 0;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7.5px, 7.5px);
+    background: #000;
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+    background: #000;
+}
+
+/* BUTTONS */
 .btn {
-    background-color: #f4e8c1;
+    background-color: var(--cream);
     color: #333;
     border: none;
     padding: 10px 25px;
     font-size: 14px;
     cursor: pointer;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     transition: background-color 0.3s;
 }
 
@@ -71,20 +120,37 @@ nav ul li a:hover {
     background-color: #e6d9a8;
 }
 
+/* Secondary/Outline Buttons */
+.outline-btn,
+.schedule-btn {
+    background-color: transparent;
+    color: #333;
+    padding: 12px 30px;
+    border: 2px solid #333;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.outline-btn:hover,
+.schedule-btn:hover {
+    background-color: #333;
+    color: white;
+}
+
 /* Header */
 header {
-    background-color: #3d3d3d;
+    background-color: var(--dark);
     background-image: linear-gradient(rgba(61, 61, 61, 0.7), rgba(61, 61, 61, 0.7)), 
                       url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     color: white;
-    padding: 100px 50px 120px;
+    padding: 120px 50px;
     text-align: left;
-    position: relative;
-    margin-top: -100px;
-    padding-top: 170px;
 }
 
 header h1 {
@@ -102,13 +168,13 @@ header p {
 
 /* What We Do Best */
 .what-we-do-best {
-    background-color: #f9f5eb;
+    background-color: var(--cream-light);
     padding: 80px 50px;
     text-align: center;
 }
 
 .what-we-do-best h2 {
-    font-size: 36px;
+    font-size: 42px;
     margin-bottom: 60px;
 }
 
@@ -144,6 +210,7 @@ header p {
 .what-we-do-best p {
     font-size: 14px;
     line-height: 1.8;
+    color: #555;
 }
 
 /* Call to Action */
@@ -154,18 +221,23 @@ header p {
 }
 
 .call-to-action h2 {
-    font-size: 32px;
+    font-size: 36px;
     margin-bottom: 30px;
+}
+
+.call-to-action .btn {
+    position: static;
+    transform: none;
 }
 
 /* Our Work */
 .Our-Work {
-    background-color: #f9f5eb;
+    background-color: var(--cream-light);
     padding: 80px 50px;
 }
 
 .Our-Work h2 {
-    font-size: 36px;
+    font-size: 42px;
     text-align: center;
     margin-bottom: 50px;
 }
@@ -174,6 +246,8 @@ header p {
     display: flex;
     justify-content: space-between;
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .gallery-item {
@@ -185,7 +259,8 @@ header p {
 
 .gallery-item img {
     width: 100%;
-    height: auto;
+    height: 250px;
+    object-fit: cover;
     border-radius: 8px;
     margin-bottom: 15px;
 }
@@ -198,11 +273,12 @@ header p {
 .gallery-item p {
     font-size: 14px;
     color: #666;
+    line-height: 1.8;
 }
 
 /* About Us */
 .about-us {
-    background-color: #f4e8c1;
+    background-color: var(--cream);
     padding: 80px 50px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -215,7 +291,7 @@ header p {
 }
 
 .about-us h2 {
-    font-size: 36px;
+    font-size: 42px;
     margin-bottom: 20px;
 }
 
@@ -227,6 +303,7 @@ header p {
 .about-us p {
     font-size: 14px;
     line-height: 1.8;
+    color: #555;
 }
 
 .about-us img {
@@ -246,7 +323,7 @@ header p {
 }
 
 .authority h2 {
-    font-size: 36px;
+    font-size: 42px;
     margin-bottom: 50px;
 }
 
@@ -259,7 +336,7 @@ header p {
 }
 
 .media-logos img {
-    height: 40px;
+    height: 50px;
     filter: grayscale(100%);
     opacity: 0.6;
     transition: all 0.3s;
@@ -272,13 +349,13 @@ header p {
 
 /* Why Choose Us */
 .why-choose-us {
-    background-color: #f9f5eb;
+    background-color: var(--cream-light);
     padding: 80px 50px;
     text-align: center;
 }
 
 .why-choose-us h2 {
-    font-size: 36px;
+    font-size: 42px;
     margin-bottom: 30px;
 }
 
@@ -287,16 +364,17 @@ header p {
     margin: 0 auto 20px;
     font-size: 16px;
     line-height: 1.8;
+    color: #555;
 }
 
 /* Collaboration */
 .collaboration {
-    background-color: #3d3d3d;
+    background-color: var(--dark);
     color: white;
 }
 
 .overlay {
-    background-color: #f4e8c1;
+    background-color: var(--cream);
     color: #333;
     padding: 80px 50px;
     display: grid;
@@ -306,7 +384,7 @@ header p {
 }
 
 .overlay h2 {
-    font-size: 36px;
+    font-size: 42px;
     margin-bottom: 20px;
     grid-column: 1;
 }
@@ -315,11 +393,14 @@ header p {
     grid-column: 1;
     font-size: 16px;
     line-height: 1.8;
+    color: #555;
 }
 
 .overlay button {
     grid-column: 1;
     justify-self: start;
+    position: static;
+    transform: none;
 }
 
 .overlay img {
@@ -332,13 +413,13 @@ header p {
 }
 
 .bottom-line {
-    background-color: #3d3d3d;
+    background-color: var(--dark);
     padding: 80px 50px;
     text-align: center;
 }
 
 .bottom-line h2 {
-    font-size: 36px;
+    font-size: 42px;
     margin-bottom: 30px;
 }
 
@@ -347,6 +428,7 @@ header p {
     margin: 0 auto;
     font-size: 16px;
     line-height: 1.8;
+    color: #ccc;
 }
 
 /* Trusted Partners */
@@ -364,7 +446,7 @@ header p {
 }
 
 .tps-head h2 {
-    font-size: 36px;
+    font-size: 42px;
     margin: 20px 0 50px;
 }
 
@@ -372,6 +454,8 @@ header p {
     display: flex;
     justify-content: center;
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .tps-gallery img {
@@ -384,13 +468,13 @@ header p {
 
 /* Subscribe */
 .subscribe {
-    background-color: #f4e8c1;
+    background-color: var(--cream);
     padding: 60px 50px;
     text-align: center;
 }
 
 .subscribe h2 {
-    font-size: 36px;
+    font-size: 42px;
     margin-bottom: 30px;
 }
 
@@ -412,6 +496,8 @@ header p {
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .submit-btn:hover {
@@ -420,160 +506,322 @@ header p {
 
 /* Footer */
 footer {
-    background-color: white;
+    background-color: #f5f5f0;
     padding: 60px 50px 30px;
-    text-align: center;
 }
 
-.footer-nav ul {
-    list-style: none;
+.footer-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.footer-links {
+    display: flex;
     gap: 30px;
-    margin-bottom: 30px;
+    list-style: none;
 }
 
-.footer-nav li {
+.footer-links a {
+    color: #333;
+    text-decoration: none;
     font-size: 14px;
-    cursor: pointer;
 }
 
-.address {
-    margin-bottom: 30px;
+.social-links {
+    display: flex;
+    gap: 20px;
 }
 
-.address p {
-    font-size: 14px;
+.social-links a {
+    color: #333;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid #ddd;
+    padding-top: 30px;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+}
+
+.contact-info p {
     margin-bottom: 5px;
 }
 
-.conicons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.conicons a {
-    color: #333;
-    font-size: 20px;
-    transition: color 0.3s;
-}
-
-.conicons a:hover {
-    color: #666;
-}
-
-footer > p {
-    font-size: 12px;
-    color: #999;
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-}
-
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     nav {
-        flex-direction: column;
-        padding: 20px;
+        padding: 20px 30px;
     }
-    
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-        margin: 20px 0;
+
+    header {
+        padding: 100px 30px;
     }
-    
+
     header h1 {
-        font-size: 32px;
+        font-size: 42px;
     }
-    
-    .what-we-do-best > div {
-        width: 100%;
-        margin-bottom: 40px;
+
+    .what-we-do-best,
+    .Our-Work,
+    .about-us,
+    .authority,
+    .why-choose-us,
+    .trusted-partners {
+        padding: 60px 30px;
     }
-    
+
+    .overlay,
+    .bottom-line {
+        padding: 60px 30px;
+    }
+
+    footer {
+        padding: 50px 30px 30px;
+    }
+}
+
+@media (max-width: 968px) {
     .gallery {
         flex-direction: column;
     }
-    
+
     .about-us {
         grid-template-columns: 1fr;
     }
-    
+
     .about-us img {
         grid-column: 1;
         grid-row: auto;
     }
-    
+
     .overlay {
         grid-template-columns: 1fr;
     }
-    
+
     .overlay img {
         grid-column: 1;
         grid-row: auto;
+        height: 400px;
     }
-    
+
     .tps-gallery {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .tps-gallery img {
         width: 100%;
+        max-width: 500px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
     }
 }
 
+@media (max-width: 768px) {
+    nav {
+        padding: 20px;
+    }
 
-@media (min-width: 500px) and (max-width: 768px) {
-        .logo {
-            height: 60px;
-            position: absolute;
-            left: 15px;
-        }
-    
-nav ul {
-            display: none;
-        }
+    .logo {
+        height: 35px;
+    }
 
-nav ul.active {
-  display: flex;
-  flex-direction: column;
-  position: fixed; /* Cover the viewport */
-  top: 0;
-  left: 0;
-  margin-top: 0;
-  background-color: var(--white);
-  width: 100%;
-  height: 100vh; /* Full height */
-  justify-content: center; /* Center the menu items */
-  text-align: center;
-  z-index: 10; /* Ensure it covers the hero section */
+    .btn {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav ul.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        inset: 0;
+        background: white;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 10;
+    }
+
+    nav ul li a {
+        color: black;
+        font-size: 2rem;
+    }
+
+    header {
+        padding: 80px 20px;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    .what-we-do-best > div {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .what-we-do-best h2,
+    .Our-Work h2,
+    .about-us h2,
+    .authority h2,
+    .why-choose-us h2,
+    .tps-head h2,
+    .subscribe h2 {
+        font-size: 36px;
+    }
+
+    .overlay h2,
+    .bottom-line h2 {
+        font-size: 36px;
+    }
+
+    footer {
+        padding: 40px 20px 20px;
+    }
+
+    .footer-bottom {
+        font-size: 11px;
+    }
 }
 
-nav ul li {
-  margin-bottom: 1.5rem;
+@media (max-width: 480px) {
+    nav {
+        padding: 15px;
+    }
+
+    .logo {
+        height: 32px;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 11px;
+    }
+
+    /* Secondary buttons responsive */
+    .outline-btn,
+    .schedule-btn {
+        padding: 10px 25px;
+        font-size: 12px;
+        width: 100%;
+    }
+
+    header {
+        padding: 60px 15px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .what-we-do-best,
+    .Our-Work,
+    .about-us,
+    .authority,
+    .why-choose-us,
+    .call-to-action,
+    .trusted-partners,
+    .subscribe {
+        padding: 40px 15px;
+    }
+
+    .overlay,
+    .bottom-line {
+        padding: 40px 15px;
+    }
+
+    .what-we-do-best h2,
+    .Our-Work h2,
+    .about-us h2,
+    .authority h2,
+    .why-choose-us h2,
+    .call-to-action h2,
+    .tps-head h2,
+    .subscribe h2,
+    .overlay h2,
+    .bottom-line h2 {
+        font-size: 28px;
+    }
+
+    .subscribe input {
+        width: 100%;
+        margin-bottom: 15px;
+        margin-right: 0;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    .overlay button {
+        width: 100%;
+    }
+
+    footer {
+        padding: 30px 15px 20px;
+    }
+
+    .contact-info {
+        font-size: 13px;
+    }
+
+    .footer-links a {
+        font-size: 13px;
+    }
+
+    .social-links a {
+        font-size: 16px;
+    }
+
+    .footer-bottom {
+        font-size: 10px;
+        padding-top: 20px;
+    }
 }
 
-nav ul li a {
-  color: var(--black);
-  text-decoration: none;
-  padding: 1rem;
-  font-size: 2rem;
-}
+@media (max-width: 360px) {
+    header h1 {
+        font-size: 24px;
+    }
 
-.hamburger-icon {
-  background: none;
-  border: none;
-  display: block;
-  font-size: 2rem;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 20; /* Ensure it stays above the nav */
-  color: var(--white); /* White cross for the close button */
+    .what-we-do-best h2,
+    .Our-Work h2,
+    .about-us h2,
+    .authority h2,
+    .why-choose-us h2,
+    .call-to-action h2,
+    .tps-head h2,
+    .subscribe h2,
+    .overlay h2,
+    .bottom-line h2 {
+        font-size: 24px;
+    }
 }
-
-}
-
